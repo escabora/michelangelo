@@ -1,0 +1,32 @@
+
+block vars
+
+doctype
+html
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="description", content="")
+
+        link(rel="icon", href="")
+        block seo
+
+        block styles
+            link(rel='stylesheet', href='/assets/css/boilerplate-globals.css', media='all')/
+
+        block headScripts
+
+    body
+        include ./../commons_elements/mouse.pug
+        include ./../commons_elements/overlay.pug
+        
+
+        include ./../_partials/header/Boilerplate-Header.pug
+
+        main(role='main', class=`main`)
+            block content
+            
+        include ./../commons_elements/modal-construction.pug
+        block scripts
+            script(type='text/javascript', src='/assets/js/boilerplate-globals.js')

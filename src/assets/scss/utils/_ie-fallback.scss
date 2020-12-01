@@ -1,0 +1,29 @@
+
+/**
+ * IE and Edge general styles
+ * Allowed !important
+ */
+@mixin ie-styles {
+    // Insert Styles Here
+}
+
+/**
+ * IE 10+ Fallback
+ */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    @include ie-styles;
+}
+
+/**
+ * Microsoft Edge Browser 13+ - @supports method
+ */
+@supports (-ms-ime-align:auto) and (color:unset) {
+    @include ie-styles;
+}
+
+/**
+ * Microsoft Edge Browser 12
+ */
+@supports (-ms-accelerator:true) and (not (color:unset)) {
+    @include ie-styles;
+}

@@ -1,0 +1,412 @@
+
+@import './../settings/_screen-sizes.scss';
+
+/**
+ * Media Queries
+ * Mobile first
+ */
+@mixin mq($width, $type: min) {
+    @if map_has_key($breakpoints, $width) {
+        $width: map_get($breakpoints, $width);
+    }
+
+    @if $type == max {
+        $width: $width - 1px;
+    }
+
+    @media only screen and (#{$type}-width: $width) {
+        @content;
+    }
+}
+
+/**
+ * Font Weight
+ */
+@mixin font-weight($weight) {
+    $output: $weight;
+
+    @if map-has-key($weights, $weight) {
+        $output: map-get($weights, $weight);
+    }
+
+    font-weight: $output;
+}
+
+/**
+ * Common Helpers
+ */
+@mixin container {
+    width        : 90%;
+    max-width    : $container-width;
+    margin-left  : auto;
+    margin-right : auto;
+    @include rem(padding-left, 16px);
+    @include rem(padding-right, 16px);
+
+    @include mq('sm', max) {
+        width        : 100%;
+    }
+}
+
+@mixin shelf-container {
+    width        : 100%;
+    max-width    : $container-width;
+    margin-left  : auto;
+    margin-right : auto;
+    @include rem(padding-left, 8px);
+    @include rem(padding-right, 8px);
+}
+
+@mixin smooth-shown {
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s ease;
+    z-index: -1;
+
+    &.is--active {
+        opacity: 1;
+        visibility: visible;
+        will-change: opacity;
+        z-index: 1;
+    }
+}
+
+@mixin show {
+    opacity    : 1;
+    visibility : visible;
+}
+
+@mixin hide {
+    opacity    : 0;
+    visibility : hidden;
+    height     : 0;
+    width      : 0;
+}
+
+@mixin force-show {
+    display: block !important;
+}
+
+@mixin force-hide {
+    display: none !important;
+}
+
+@mixin absolute-centered {
+    position  : absolute;
+    top       : 50%;
+    left      : 50%;
+    transform : translate(-50%, -50%);
+}
+
+@mixin fixed-centered {
+    position  : fixed;
+    top       : 50%;
+    left      : 50%;
+    transform : translate(-50%, -50%);
+}
+
+@mixin flex-centered {
+    display         : flex;
+    justify-content : center;
+    align-items     : center;
+}
+
+@mixin flex-spaced {
+    display         : flex;
+    justify-content : space-between;
+    align-items     : center;
+}
+
+@mixin hide-text {
+    font-size   : 0;
+    line-height : 0;
+    color       : transparent;
+}
+
+@mixin reset-link {
+    text-decoration : inherit;
+    color           : inherit;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+@mixin reset-media {
+    width                  : 100%;
+    height                 : auto;
+    -ms-interpolation-mode : bicubic;
+    display                : inline-block;
+    vertical-align         : middle;
+}
+
+@mixin reset-list {
+    padding-left  : 0;
+    margin-top    : 0;
+    margin-bottom : 0;
+    list-style    : none;
+}
+
+@mixin reset-table {
+    border-collapse : collapse;
+    border-spacing  : 0;
+}
+
+@mixin reset-table-cell {
+    text-align     : left;
+    font-weight    : normal;
+    vertical-align : middle;
+}
+
+@mixin reset-button {
+    overflow         : visible; // Shrinkwrap the text in IE7-
+    margin           : 0;
+    padding          : 0;
+    border           : 0;
+    background       : transparent;
+    font             : inherit; // Inherit font settings (doesn’t work in IE7-)
+    line-height      : normal; // Override line-height to avoid spacing issues
+    cursor           : pointer; // Buttons don’t make the cursor change in all browsers
+    -moz-user-select : text; // Make button text selectable in Gecko
+}
+
+@mixin reset-box-model {
+    margin  : 0;
+    padding : 0;
+    border  : 0;
+    outline : 0;
+}
+
+@mixin hidden-heading {
+  font-size : 0;
+  width     : 1px;
+  height    : 1px;
+  display   : inline-block;
+  overflow  : hidden;
+  position  : absolute !important;
+  border    : 0 !important;
+  padding   : 0 !important;
+  margin    : 0 !important;
+  clip      : rect(1px 1px 1px 1px); // for Internet Explorer
+  clip      : rect(1px, 1px, 1px, 1px);
+}
+
+@mixin visually-hidden {
+    position : absolute !important;
+    overflow : hidden;
+    clip     : rect(0 0 0 0);
+    height   : 1px;
+    width    : 1px;
+    margin   : -1px;
+    padding  : 0;
+    border   : 0;
+}
+
+@mixin visually-shown($position: inherit) {
+    position : $position !important;
+    overflow : auto;
+    clip     : auto;
+    width    : auto;
+    height   : auto;
+    margin   : 0;
+}
+
+@mixin prevent-rendering {
+    filter                 : blur(.0px);
+    transform              : perspective(1px) translate3d(0, 0, 0);
+    backface-visibility    : hidden;
+    -webkit-font-smoothing : subpixel-antialiased;
+}
+
+@mixin headings($from: 1, $to: 6) {
+    @for $i from $from through $to {
+        h#{$i} {
+            @content
+        }
+    }
+}
+
+@mixin link-hover($color) {
+    color: $color;
+    text-shadow: 0 0 0 $color, 0 0 0 $color, 0 0 0 $color;
+}
+
+@mixin button-disabled {
+    opacity: .25;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+@mixin placeholder($color, $opacity) {
+    &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        color: $color;
+        opacity: $opacity;
+    }
+
+    &::-moz-placeholder { /* Firefox 19+ */
+        color: $color;
+        opacity: $opacity;
+    }
+
+    &:-ms-input-placeholder { /* IE 10+ */
+        color: $color;
+        opacity: $opacity;
+    }
+
+    &:-moz-placeholder { /* Firefox 18- */
+        color: $color;
+        opacity: $opacity;
+    }
+}
+
+/**
+ * Mixin scrollbar
+ */
+@mixin scrollbar($size, $primary, $secondary: lighten($primary, 25%)) {
+    &::-webkit-scrollbar {
+        width:  $size;
+        height: $size;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $primary;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: $secondary;
+    }
+
+    // For Internet Explorer
+    body & {
+        scrollbar-face-color: $primary;
+        scrollbar-track-color: $secondary;
+    }
+}
+
+/**
+ * Generate arrow on a pseudo-element
+ * To set color, use 'border-color' inside a class
+ *
+ * @param  {string} $position:     up              Arrow position (up, right, bottom, left)
+ * @param  {string} $arrow-width:  20px             Arrow Width
+ * @param  {string} $arrow-size:   $arrow-width/4   Arrow size
+ *
+ * @return A CSS Arrow
+ */
+@mixin arrow-generate($position: up, $arrow-width: 20px, $arrow-size: $arrow-width / 4) {
+    $pos: -45deg;
+
+    @if $position == up {
+        $pos: $pos;
+    } @elseif $position == right {
+        $pos: 45deg;
+    } @elseif $position == down {
+        $pos: 135deg;
+    } @elseif $position == left {
+        $pos: -135deg;
+    } @else {
+        //
+    }
+
+    content: '';
+    display: inline-block;
+    width: $arrow-width;
+    height: $arrow-width;
+    border-top: $arrow-size solid #333;
+    border-right: $arrow-size solid #333;
+    transform: rotate($pos);
+}
+
+/*
+* @include triangle within a pseudo element and add positioning properties (ie. top, left)
+* $direction: up, down, left, right
+*/
+@mixin triangle($direction, $size: 6px, $color: #222){
+    content: '';
+    display: block;
+    position: absolute;
+    height: 0; width: 0;
+
+    @if ( $direction == 'up' ) {
+        border-bottom: $size solid $color;
+        border-left: 1/2*$size solid transparent;
+        border-right: 1/2*$size solid transparent;
+    }
+
+    @else if ( $direction == 'down' ) {
+        border-top: $size solid $color;
+        border-left: 1/2*$size solid transparent;
+        border-right: 1/2*$size solid transparent;
+    }
+
+    @else if ( $direction == 'left' ) {
+        border-top: 1/2*$size solid transparent;
+        border-bottom: 1/2*$size solid transparent;
+        border-right: $size solid $color;
+    }
+
+    @else if ( $direction == 'right' ) {
+        border-top: 1/2*$size solid transparent;
+        border-bottom: 1/2*$size solid transparent;
+        border-left: $size solid $color;
+    }
+}
+
+@mixin tooltip($content: attr(data-tooltip), $direction: top) {
+    position: relative;
+
+    &:before,
+    &:after {
+        display: none;
+        z-index: 98;
+    }
+
+    &:hover {
+        &:after { // for text bubble
+            content: $content;
+            display: block;
+            position: absolute;
+            height: 12px; // (makes total height including padding 22px)
+            padding: 6px;
+            font-size: 12px;
+            white-space: nowrap;
+            color: #fff;
+            text-shadow: 1px 1px #000;
+            background-color: #222;
+        }
+
+        @if ( $direction == 'top' ) {
+            &:before {
+                @include triangle(down, 6px, #222);
+                top: -6px; margin-top: 0;
+                left: 47%;
+            }
+
+            &:after {
+                top: -28px;
+                left: 47%; margin-left: -20px;
+            }
+        }
+
+        @else if ( $direction == 'bottom' ) {
+            &:before {
+                @include triangle(up, 6px, #222);
+                top: auto; margin-top: 0;
+                bottom: -6px;
+                left: 47%;
+            }
+
+            &:after {
+                bottom: -28px;
+                left: 47%; margin-left: -20px;
+            }
+        }
+    }
+}
+
+@mixin ellipsis {
+    // Create ellipsis
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

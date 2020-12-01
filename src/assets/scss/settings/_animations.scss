@@ -1,0 +1,21 @@
+@keyframes float {
+    0% {
+        transform: translateY(0)
+    }
+
+    25% {
+        transform: translateY(30px)
+    }
+
+    50% {
+        transform: translateY(0)
+    }
+
+    75% {
+        transform: translateY(40px)
+    }
+
+    to {
+        transform: translateY(0)
+    }
+}

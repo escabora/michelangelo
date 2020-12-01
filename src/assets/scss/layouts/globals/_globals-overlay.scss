@@ -1,0 +1,72 @@
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity .2s ease-in-out;
+
+    &.is--active {
+        z-index: 4;
+        opacity: 1;
+    }
+
+    &-first {
+        width: 40%;
+        left: 0;
+    }
+    
+    &-two {
+        width: 20%;
+        left: 40%;
+    }
+
+    &-three {
+        width: 40%;
+        left: 60%;
+    }
+
+    &-steps {
+        position: absolute;
+        top: 0%;
+        height: 100vh;
+        background: #f9f9f9;
+        border-left: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+    }
+
+    &--black {
+        & .overlay-steps {
+            background: #000;
+            border: 0px;
+        }
+    }
+
+}
+
+.percentual {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: auto;
+    color: #fff;
+    transform: translate(-50%,-50%);
+    @include rem(padding, 10px 0);
+    @include rem(font-size, 50px);
+    @include font-weight('normal');
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    opacity: 1;
+    z-index: 5;
+
+    &__bar {
+        height: 1px;
+        background: #fff;
+        position: absolute;
+        left: 10%;
+    }
+}

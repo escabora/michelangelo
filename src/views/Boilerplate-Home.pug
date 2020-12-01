@@ -1,0 +1,22 @@
+extends ./_layout/_template__base.pug
+
+//- Page Head SEO
+block append seo
+    title Michelangelo Um breve relato do Renascentista italiano 
+    
+//- Page styles
+block append styles
+    link(rel='stylesheet', href="/assets/css/boilerplate-home.css")
+
+//- Main Content
+block content
+    include ./_partials/home/section-davi
+    include ./_partials/home/section-construction
+    include ./_partials/home/section-painting
+    include ./_partials/home/section-final
+
+//- Page scripts
+block append scripts
+    script(src='//ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js?ver=3.4.1')
+    script(src='//cdn.jsdelivr.net/npm/greensock@1.20.2/dist/TweenMax.min.js?ver=2.1.3')
+    script(type='text/javascript', src='/assets/js/boilerplate-home.js')

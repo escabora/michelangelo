@@ -1,0 +1,26 @@
+
+/**
+ * Settings
+ */
+ @import './settings/_colors.scss';
+ @import './settings/_typography.scss';
+ 
+ /**
+  * Tools
+  */
+ @import './tools/_mixins.scss';
+ 
+ /**
+  * Vendor | Mixins
+  */
+ @import './vendor/form-reset/_form-reset.scss';
+ @import './vendor/sass-rem/_rem.scss';
+ @import './vendor/locomotive-scroll.scss';
+
+ /**
+ * components
+ */
+ @import './components/_container.scss';
+ @import './components/_display.scss';
+
+ 

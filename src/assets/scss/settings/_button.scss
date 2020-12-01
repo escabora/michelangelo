@@ -1,0 +1,90 @@
+.btn {
+    position: relative;
+    display: inline-block;
+    font-family: bison,sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #131316;
+    font-size: 16px;
+    letter-spacing: .5em;
+    border: 1px solid #ccc;
+    margin-top: 50px;
+    z-index: 10;
+
+    &:before {
+        content: "";
+        position: absolute;
+        right: -20px;
+        top: 50%;
+        transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        height: 1px;
+        width: 75px;
+        background-color: #B49C46;
+        z-index: -1;
+        transition: right .4s cubic-bezier(.4,0,.2,1)
+    }
+
+    &-wrapper {
+        position: relative;
+        & .active {
+            position: relative;
+            display: inline-block;
+            transition-duration: .75s;
+            transition-timing-function: cubic-bezier(.19,1,.22,1);
+            transition-delay: .1s;
+            transform: translateY(0);
+            -webkit-transform: translateY(0);
+            opacity: .999
+        }
+    
+        & .hover {
+            display: inline-block;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            transform: translateY(35%);
+            -webkit-transform: translateY(35%);
+            position: absolute;
+            transition-delay: 0s;
+            transition-duration: .25s;
+            transition-timing-function: ease-out;
+            opacity: 0;
+    
+    
+        }
+    }
+
+    
+    & .button {
+        transition-property: transform,opacity;
+        padding: 33px 115px 33px 45px
+    }
+
+    &:hover {
+        &:before {
+            right: 0;
+        }
+       
+        .btn-wrapper .hover {
+            position: relative;
+            transition-delay: .1s;
+            transition-duration: .75s;
+            transition-timing-function: cubic-bezier(.19,1,.22,1);
+            opacity: .999;
+            transform: translateY(0);
+            -webkit-transform: translateY(0)
+        }
+
+        .btn-wrapper .active {
+            transform: translateY(-25%);
+            -webkit-transform: translateY(-25%);
+            position: absolute;
+            transition-delay: 0s;
+            transition-duration: .25s;
+            transition-timing-function: ease-out;
+            opacity: 0
+        }
+    } 
+}

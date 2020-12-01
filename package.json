@@ -1,0 +1,32 @@
+{
+  "name": "boilerplate",
+  "version": "0.0.1",
+  "author": "Gabriel Escabora",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rm -Rf ./dist",
+    "start": "npm run clean && gulp --colors && npx gulp watch --colors",
+    "build": "npm run clean && gulp --colors --production && npx gulp --colors --production",
+    "dev": "npm run build && npx gulp watch --colors --production"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-google": "^0.9.1",
+    "gulp": "^3.9.1",
+    "taskerify": "^1.5.4",
+    "underscore": "^1.9.0"
+  },
+  "dependencies": {
+    "es6-promise": "^4.2.6",
+    "gsap": "^3.5.0",
+    "locomotive-scroll": "^3.5.4",
+    "lodash": "^4.17.20",
+    "npm": "^6.0.1",
+    "unfetch": "^4.1.0"
+  },
+  "engines": {
+    "node": ">= 6.0.0"
+  },
+  "description": "* See a list of products;\r * Be able to add or remove items to the cart and get instant visual feedback;\r * See the products added to the cart.",
+  "main": "gulpfile.babel.js"
+}

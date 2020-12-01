@@ -1,0 +1,84 @@
+
+html {
+    @include rem-baseline;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+body {
+    box-sizing: border-box;
+
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    text-rendering: optimizeLegibility;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    /* stop WebKit and Windows mobile changing text size */
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+
+    color: $color-gray-darken;
+    background-color: $color-white;
+    font-family: $font-main;
+
+    &.no-scroll {
+        overflow: hidden;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    @include reset-box-model;
+}
+
+a {
+    @include reset-link;
+}
+
+ul,
+ol {
+    @include reset-list;
+}
+
+img {
+    @include reset-media;
+}
+
+strong {
+    font-weight: bold;
+}
+
+em {
+    font-style: italic;
+}
+
+/**
+ * Forms Reset
+ */
+input {
+    @extend %form-reset-input;
+}
+
+label {
+    @extend %form-reset-label;
+}
+
+select {
+    @extend %form-reset-select;
+}
+
+button {
+    @extend %form-reset-button;
+}
+
+textarea {
+    @extend %form-reset-textarea;
+}

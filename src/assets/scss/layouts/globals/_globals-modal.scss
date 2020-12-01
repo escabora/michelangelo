@@ -1,0 +1,89 @@
+.modal {
+    &-construction {
+        opacity: 1;
+        position: relative;
+        visibility: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+
+        z-index: 5;
+        opacity: 0;
+        transition: all .3s ease-in-out;
+
+        & img {
+            transition-duration: .8s;
+            transition-delay: 0.2s;
+            opacity: 0;
+        }
+
+        & .feature-info-text {
+            @include rem(padding, 20px);
+
+            transition-duration: .8s;
+            transition-delay: 0.4s;
+            opacity: 0;
+        }
+
+        & .delay-06s {
+            transition-delay: 0.6s;
+        }
+
+        &.is--active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        & .grid-three {
+            position: absolute;
+            width: 100%;
+            height: auto;
+            opacity: 0;
+            visibility: hidden;
+            transition: all .3s ease-in-out;
+            
+
+            &.is--active {
+                opacity: 1;
+                visibility: visible;
+    
+                & .feature-info-text {
+                    opacity: 1;
+                }
+    
+                & img {
+                    opacity: 1;
+                }
+            }
+        }
+
+        &--close {
+            position: absolute;
+            @include rem(top, 30px);
+            @include rem(right, 30px);
+
+            & svg {
+                
+                transform: rotate(90deg);
+                will-change: transform;
+                @include rem(width, 30px);
+                @include rem(height, 30px);
+                transition-duration: .8s;
+                transition: all .5s cubic-bezier(0.42, 0, 0, 1.01);
+            }
+            
+            &:hover {
+                & svg {
+                    transform: rotate(0deg);
+                }
+                
+            }
+        }
+    }
+}
