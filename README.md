@@ -1,47 +1,43 @@
-# Netshoes Challenge
+<h2 align="center">Michelangelo UI and UX</h2>
 
-## Installation
+### Installing
 
-Clone the repository
-
-Use the command bellow to install dependencies 
+Clone the repository. Use the command bellow to install dependencies
 
 ```bash
 npm install
 ```
-
-## Code Inspection
 
 After installing the packages, run the command bellow for inspection proposes on DevTools (not minified code)
 
 ```bash
 npm start
 ```
-And open index.html file
 
-## Static Server
+And open https://localhost:8888/html/Boilerplate-Home
 
-Server deployed on Heroku
+This project aims to study animation by manipulating DOM elements with Javascript and also the concept of UX Design.
 
-* Getting all products
+#### Links
 
-`https://akf-netshoes-front-end.herokuapp.com/api/products`
+[Demo code](https://www.figma.com/file/NuTMWBtmVVBXcEYw5XPAQo/michelangelo?node-id=0%3A1) <br/>
+[Figma UX](https://www.figma.com/file/NuTMWBtmVVBXcEYw5XPAQo/michelangelo?node-id=0%3A1)
 
+## Tasks
 
-* Getting a specific product
+-   JavaScript Module Pattern
+-   [Stylelint SASS Guidelines](https://github.com/bjankord/stylelint-config-sass-guidelines)
 
-`https://akf-netshoes-front-end.herokuapp.com/api/product/"ProductSKU"` 
+### Module Bundler
 
+-   [GSAP](https://greensock.com/gsap/)
+-   [LOCOMOTIVE SCROLL](https://github.com/locomotivemtl/locomotive-scroll)
 
-If you want to test the server in localhost, open the folder server, and run the command on terminal.
+### Developed with
 
-```bash
-npm start
-```
-The server is listenning to port 3001.
+-   [Taskerify](https://github.com/Zeindelf/taskerify)
+    -   [Examples](https://github.com/Zeindelf/taskerify/blob/master/example/gulpfile.babel.js)
 
-## Features
-* Github pages
-* Responsive layout
-* Persist minicart data on page reload;
-* Instructions on how to build/run the project.
+### Show your support
+
+Give a ⭐️ if you liked!
