@@ -54,4 +54,4 @@ node_modules/
 # App archives
 *.map
 *.log
-dist/
+# dist/
