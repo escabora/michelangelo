@@ -20,7 +20,7 @@ This project aims to study animation by manipulating DOM elements with Javascrip
 
 #### Links
 
-[Demo code](https://www.figma.com/file/NuTMWBtmVVBXcEYw5XPAQo/michelangelo?node-id=0%3A1) <br/>
+[Demo code](https://escabora.github.io/michelangelo/dist/html/Boilerplate-Home) <br/>
 [Figma UX](https://www.figma.com/file/NuTMWBtmVVBXcEYw5XPAQo/michelangelo?node-id=0%3A1)
 
 ## Tasks
